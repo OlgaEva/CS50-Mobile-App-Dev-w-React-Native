@@ -10,8 +10,11 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function newTodo() {  
-  const newTodo = document.createElement("li")
-  newTodo.innerText = document.getElementById("input").value
-  list.append(newTodo)
+  const addTodo = document.createElement("li")
+  const liText = document.getElementById("input").value
+
+  addTodo.innerHTML = `<label><input type='checkbox'>${liText}</label>`
+
+  list.append(addTodo)
   document.getElementById("input").value = ""
 }
