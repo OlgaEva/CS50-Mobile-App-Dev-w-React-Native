@@ -10,5 +10,7 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function newTodo() {
-  alert('New TODO button clicked!')
+  // alert('New TODO button clicked!')
+  console.log("I have been pressed!")
+
 }
