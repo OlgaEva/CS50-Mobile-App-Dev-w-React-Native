@@ -13,8 +13,17 @@ function newTodo() {
   const addTodo = document.createElement("li")
   const liText = document.getElementById("input").value
 
-  addTodo.innerHTML = `<label><input type='checkbox'>${liText}</label>`
+  addTodo.innerHTML = `<label><input type='checkbox' id='checkbox'>${liText}</label>`
 
   list.append(addTodo)
   document.getElementById("input").value = ""
+
+
+addTodo.addEventListener("click", function(){
+  console.log("added")
+})
+// debugger;
+
+document.getElementById("input").value = ""
 }
+

@@ -75,3 +75,6 @@ ul {
   display: inline-block;
 }
 
+li{
+  padding: 10px;
+}
