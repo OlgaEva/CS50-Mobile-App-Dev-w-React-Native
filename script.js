@@ -9,6 +9,8 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
+let counter = 0;
+
 function newTodo() {  
   const addTodo = document.createElement("li")
   const liText = document.getElementById("input").value
@@ -19,11 +21,17 @@ function newTodo() {
   document.getElementById("input").value = ""
 
 
-addTodo.addEventListener("click", function(){
-  console.log("added")
+addTodo.addEventListener("click", function(event){
+  console.log(event)
 })
 // debugger;
 
 document.getElementById("input").value = ""
+counter++
+console.log(counter)
+
+const quantity = document.getElementById("item-count")
+quantity.innerText = `${counter}`
 }
+
 
