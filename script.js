@@ -22,7 +22,8 @@ function newTodo() {
 
 
 addTodo.addEventListener("click", function(event){
-  console.log(event)
+  // console.log(event)
+  dealWithChecked()
 })
 // debugger;
 
@@ -34,4 +35,19 @@ const quantity = document.getElementById("item-count")
 quantity.innerText = `${counter}`
 }
 
+function dealWithChecked() {
+  // console.log("this still works")
+  const checkboxes = document.querySelectorAll("li")
+  console.log(checkboxes)
+
+  checkboxes.forEach(function(li) {
+    if(li.children[0].childNodes[0].checked == true){
+      // console.log("I want a strikethrough please")
+      li.classList.add("checked")
+    } else{
+      li.classList.remove("checked")
+    }
+  })
+
+}
 

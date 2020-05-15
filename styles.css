@@ -67,14 +67,18 @@ ul {
 }
 
 /* I'm adding these */
-#form{
+#form {
   text-align: center;
 }
 
-#input{
+#input {
   display: inline-block;
 }
 
-li{
+li {
   padding: 10px;
+}
+
+.checked {
+  text-decoration: line-through;
 }
