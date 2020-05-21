@@ -16,6 +16,7 @@ function newTodo() {
   const liText = document.getElementById("input").value
     if(liText == ''){
       alert("You cannot submit an empty ToDo!")
+      counter--
     }else{
     addTodo.innerHTML = `<label><input type='checkbox' id='checkbox'>&ensp;${liText}<span>&ensp;<button type="button">Delete</button></span></label>`
     }
