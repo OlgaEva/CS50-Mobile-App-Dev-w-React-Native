@@ -15,17 +15,15 @@ function newTodo() {
   const addTodo = document.createElement("li")
   const liText = document.getElementById("input").value
 
-  addTodo.innerHTML = `<label><input type='checkbox' id='checkbox'>${liText}</label>`
+  addTodo.innerHTML = `<label><input type='checkbox' id='checkbox'>${liText}<span><button type="button">Delete</button></span></label>`
 
   list.append(addTodo)
   document.getElementById("input").value = ""
 
 
 addTodo.addEventListener("click", function(event){
-  // console.log(event)
   dealWithChecked()
 })
-// debugger;
 
 document.getElementById("input").value = ""
 counter++
@@ -36,18 +34,19 @@ quantity.innerText = `${counter}`
 }
 
 function dealWithChecked() {
-  // console.log("this still works")
   const checkboxes = document.querySelectorAll("li")
   console.log(checkboxes)
 
   checkboxes.forEach(function(li) {
     if(li.children[0].childNodes[0].checked == true){
-      // console.log("I want a strikethrough please")
       li.classList.add("checked")
+      //IS THIS THE BEST PLACE TO DEAL WITH THE UNCHECKED COUNT???
+      // const unchecked = document.getElementById("unchecked-count")
+      // unchecked.innerText = `${counter - 1}`
+      // console.log(counter)
     } else{
       li.classList.remove("checked")
     }
   })
-
 }
 
