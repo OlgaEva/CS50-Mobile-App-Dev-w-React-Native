@@ -30,10 +30,11 @@ addTodo.addEventListener("click", function(event){
 
 document.getElementById("input").value = ""
 counter++
-console.log(counter)
 
 const quantity = document.getElementById("item-count")
-quantity.innerText = `${counter}`
+  quantity.innerText = `${counter}`
+const unchecked = document.getElementById("unchecked-count")
+  unchecked.innerText = `${counter}`
 }
 
 function dealWithChecked() {
