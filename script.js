@@ -14,9 +14,11 @@ let counter = 0;
 function newTodo() {  
   const addTodo = document.createElement("li")
   const liText = document.getElementById("input").value
-
-  addTodo.innerHTML = `<label><input type='checkbox' id='checkbox'>&ensp;${liText}<span>&ensp;<button type="button">Delete</button></span></label>`
-
+    if(liText == ''){
+      alert("You cannot submit an empty ToDo!")
+    }else{
+    addTodo.innerHTML = `<label><input type='checkbox' id='checkbox'>&ensp;${liText}<span>&ensp;<button type="button">Delete</button></span></label>`
+    }
   list.append(addTodo)
   document.getElementById("input").value = ""
 
