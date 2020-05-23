@@ -12,7 +12,7 @@ const uncheckedCount = document.getElementById('unchecked-count')
 let counter = 0;
 let uncheckedCounter = 0;
 
-function newTodo() {  
+function newTodo(){
   const addTodo = document.createElement("li")
   const liText = document.getElementById("input").value
     if(liText == ''){
@@ -27,41 +27,60 @@ function newTodo() {
       uncheckedCounter++;
 
       itemCount.innerText = `${counter}`
-      uncheckedCount.innerText = `${uncheckedCounter}`
+
+      addTodo.addEventListener("click", function(event){
+        dealWithChecked()
+        })
+
+        calculateUnchecked();
+  }
+}
+
+function dealWithChecked(){
+  console.log("checking my todos...")
+  console.log(event.target.checked)
+  console.dir(event.target.parentElement.parentElement)
+  if(event.target.checked == true){
+    console.log("blah")
+    event.target.parentElement.parentElement.classList.add("checked")
+    calculateUnchecked();
+  }else{
+    event.target.parentElement.parentElement.classList.remove("checked")
+    calculateUnchecked();
+  }
+}
+
+function calculateUnchecked(){
+  console.log("hello")
+
+    let notChecked = 0;
+    const checkboxes = document.querySelectorAll("li")
+    console.log(checkboxes)
+  
+      checkboxes.forEach(function(li) {
+    
+          console.dir(li.childNodes[0])
+          if(li.childNodes[0].control.checked == false){
+          notChecked++;
+          }else{
+          // console.log("I'm a true one")
+        }
+        console.log(notChecked)
+  
+    uncheckedCount.innerText = `${notChecked}`
+      })
   }
 
-  addTodo.addEventListener("click", function(event){
-    dealWithChecked()
-    })
-}
-
-// function dealWithChecked() {
-//   const checkboxes = document.querySelectorAll("li")
-
-//   checkboxes.forEach(function(li) {
-//     if(li.children[0].childNodes[0].checked == true){
-//       console.log(li.children[0].childNodes[0].checked)
-//       li.classList.add("checked")
-//       console.log(uncheckedCounter)
-//       uncheckedCounter--;
-//       uncheckedCount.innerText = `${uncheckedCounter}`
-//       console.log(uncheckedCounter)
-//     } else{
-//       console.log(li.children[0].childNodes[0].checked)
-//       li.classList.remove("checked")
-//       // console.log(uncheckedCounter)
-//       // uncheckedCounter++;
-//       // uncheckedCount.innerText = `${uncheckedCounter}`
-//       // console.log(uncheckedCounter)
-//     }
-//   })
-// }
-
 function deleteMe(){
-  event.target.parentElement.parentElement.remove();
-  counter--;
-  itemCount.innerText = `${counter}`
-  uncheckedCounter--;
-  uncheckedCount.innerText = `${uncheckedCounter}`
+ 
+  if(event.target.parentElement.previousElementSibling.checked == true){
+    event.target.parentElement.parentElement.parentElement.remove();
+    counter--;
+    itemCount.innerText = `${counter}`
+  }else{
+    event.target.parentElement.parentElement.parentElement.remove();
+    counter--;
+    itemCount.innerText = `${counter}`
+    calculateUnchecked();
+  }
 }
-
