@@ -37,11 +37,8 @@ function newTodo(){
 }
 
 function dealWithChecked(){
-  console.log("checking my todos...")
-  console.log(event.target.checked)
-  console.dir(event.target.parentElement.parentElement)
+
   if(event.target.checked == true){
-    console.log("blah")
     event.target.parentElement.parentElement.classList.add("checked")
     calculateUnchecked();
   }else{
@@ -51,11 +48,9 @@ function dealWithChecked(){
 }
 
 function calculateUnchecked(){
-  console.log("hello")
 
     let notChecked = 0;
     const checkboxes = document.querySelectorAll("li")
-    console.log(checkboxes)
   
       checkboxes.forEach(function(li) {
     
@@ -63,9 +58,7 @@ function calculateUnchecked(){
           if(li.childNodes[0].control.checked == false){
           notChecked++;
           }else{
-          // console.log("I'm a true one")
         }
-        console.log(notChecked)
   
     uncheckedCount.innerText = `${notChecked}`
       })
