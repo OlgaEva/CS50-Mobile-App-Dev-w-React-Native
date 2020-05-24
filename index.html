@@ -15,7 +15,7 @@
       <br>
       <br>
       <div id="form">
-        <input id="input"></input>&ensp;
+        <input id="input" onkeyup="if(event.keyCode==13) newTodo()"></input>&ensp;
       <button class="button center" onClick="newTodo()">New TODO</button>
       <ul id="todo-list" class="todo-list"></ul>
       </div>
